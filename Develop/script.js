@@ -68,6 +68,13 @@ function randomUppercase() {
 }
 
 //declare number
+function randomNumber() {
+const num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+return num [Math.floor(Math.random() * num.length)]
+
+}
+console.log(randomNumber());
+
 //declare specialCharacter
 function randomSymbol() {
   const symbol = [
