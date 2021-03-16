@@ -1,39 +1,124 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+
+//declare lowercase password
+function randomLowercase() {
+  const lowercase = [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z",
+  ];
+  return lowercase[Math.floor(Math.random() * lowercase.length)];
+}
+
+//declare uppercase
+function randomUppercase() {
+  const uppercase = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+  ];
+  return uppercase[Math.floor(Math.random() * uppercase.length)];
+}
+
+//declare number
+//declare specialCharacter
+function randomSymbol() {
+  const symbol = [
+    "!",
+    "@",
+    "#",
+    "$",
+    "^",
+    "%",
+    "&",
+    "*",
+    "(",
+    ")",
+    "{",
+    "}",
+    "[",
+    "]",
+    "=",
+    "<",
+    ">",
+    "/",
+    "?",
+    ",",
+    ".",
+  ];
+
+  return symbol[Math.floor(Math.random() * symbol.length)];
+}
+
 function generatePassword() {
   /*store a variable */
   const passwordLength = prompt(
     "Specify the length of your password",
     "enter number here"
   );
-
+  //the value that comes from a prompt-it returns a string value eg 8, convert string to number.
   if (passwordLength >= 8 && passwordLength <= 128) {
     /*link it with var passwordchar*/
-    console.log(passwordChar()); 
+    console.log();
   } else {
     alert("invalid submission");
-
   }
 }
-
 /*declare another variable to verify password character*/
-const passwordChar = new Array(4);
 
-for (i = 0; i < 4; i++) {
-  if (i === 4) {break}
-  passwordChar[i] = confirm("Your password must include an Uppercase ","");
-  passwordChar[i] = confirm("Your password must include a Lowercase ", "");
-  passwordChar[i] = confirm("Your password must include a Number ", "");
-  passwordChar[i] = confirm("Your password must include a Special Character ", "");
-
-}
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
