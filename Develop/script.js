@@ -121,12 +121,18 @@ function generatePassword() {
 
   } else if ((passwordLength >= 8) && (passwordLength <= 128)) {
     
-    const islowerCase = confirm("Do you want lowercase in you password");
+    const islowerCase = confirm("Do you want Lowercase in your password");
+    const isUpperCase = confirm("Do you want Uppercase in your password");
+    const isNumber = confirm("Do you want Number in your password");
+    const isSymbol = confirm("Do you want Special Character in you password");
 
+  }else if (islowerCase || isUppercase || isNumber || isSymbol) {
+    /*generate password function*/
+
+    
   }else {
-    alert ("invalid submission")
-  }
 
+}
 }
 
 
