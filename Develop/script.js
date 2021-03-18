@@ -112,20 +112,24 @@ function generatePassword() {
     "Specify the length of your password",
     "enter number here"
   );
-  
-//prompt returns a string value, convert string to number.
-const convertNumber = parseInt(passwordLength, 10);
-console.log(convertNumber);
-console.log(typeof convertNumber);
 
-if (passwordLength >= 8 && passwordLength <= 128) {
-    /*creat const to store data */
-    
-  } else {
-    alert("invalid submission");
+  //prompt returns a string value, convert string to number.
+  const convertNumber = parseInt(passwordLength, 10);
+
+  if (Number.isNaN(convertNumber)) {
+  alert("Please enter a valid number like 8, 10, etc");
+
+  } else { 
+    const verifypasswordlength = function (validNumber) {
+      if((passwordLength >= 8) && (passwordLength <= 128)) {
+    confirm("Do you want lowercase in you password");
+
+
+  }else {
+    alert ("invalid submission")
   }
-}
-/*start to generate password*/
+console.log(convertNumber); 
+
 
 
 // Write password to the #password input
@@ -134,5 +138,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
