@@ -69,11 +69,9 @@ function randomUppercase() {
 
 //declare number
 function randomNumber() {
-const num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-return num [Math.floor(Math.random() * num.length)]
-
+  const num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  return num[Math.floor(Math.random() * num.length)];
 }
-
 
 //declare specialCharacter
 function randomSymbol() {
@@ -104,37 +102,47 @@ function randomSymbol() {
   return symbol[Math.floor(Math.random() * symbol.length)];
 }
 
-
 function generatePassword() {
   /*store a variable */
-  
-  const passwordLength = prompt(
+
+  const passwordLengthstring = prompt(
     "Specify the length of your password",
     "enter number here"
   );
 
   //prompt returns a string value, convert string to number.
-  const convertNumber = parseInt(passwordLength, 10);
+  const passwordLength = parseInt(passwordLengthstring, 10);
 
-  if (Number.isNaN(convertNumber)) {
-  alert("Please enter a valid number like 8, 10, etc");
-
-  } else if ((passwordLength >= 8) && (passwordLength <= 128)) {
-    
+  if (passwordLength >= 8 && passwordLength <= 128) {
     const islowerCase = confirm("Do you want Lowercase in your password");
     const isUpperCase = confirm("Do you want Uppercase in your password");
     const isNumber = confirm("Do you want Number in your password");
     const isSymbol = confirm("Do you want Special Character in you password");
+  } else {
+    alert("Password length needs to be a valid number between 8 to 128");
 
-  }else if (islowerCase || isUppercase || isNumber || isSymbol) {
-    /*generate password function*/
+    return "";
+  }
 
-    
-  }else {
-
+  if (islowerCase || isUppercase || isNumber || isSymbol) {
+    let randomPassword = "";
+    /*loop over the upper,lower,num,symbol? */
+    for (let i = 0; i < passwordLength; i++) {
+      if (islowercase) {
+        randomPassword += randomLowercase();
+      } else if (isUppercase) {
+        randomPassword += randomUppercase();
+      } else if (isNumber) {
+        randomPassword += randomNumber();
+      } else if (isSymbol) {
+        randomPassword += random();
+      }
+    }
+    return "randomPassword";
+  } else {
+    alert("Please select at least one option");
+  }
 }
-}
-
 
 // Write password to the #password input
 function writePassword() {
