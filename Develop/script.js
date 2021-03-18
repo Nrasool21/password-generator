@@ -124,11 +124,11 @@ function generatePassword() {
     return "";
   }
 
-  if (islowerCase || isUppercase || isNumber || isSymbol) {
+  if (isLowerCase || isUppercase || isNumber || isSymbol) {
     let randomPassword = "";
     /*loop over the upper,lower,num,symbol? */
     for (let i = 0; i < passwordLength; i++) {
-      if (islowercase) {
+      if (isLowercase) {
         randomPassword += randomLowercase();
       } else if (isUppercase) {
         randomPassword += randomUppercase();
