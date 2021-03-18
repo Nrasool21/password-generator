@@ -119,17 +119,15 @@ function generatePassword() {
   if (Number.isNaN(convertNumber)) {
   alert("Please enter a valid number like 8, 10, etc");
 
-  } else { 
-    const verifypasswordlength = function (validNumber) {
-      if((passwordLength >= 8) && (passwordLength <= 128)) {
-    confirm("Do you want lowercase in you password");
-
+  } else if ((passwordLength >= 8) && (passwordLength <= 128)) {
+    
+    const islowerCase = confirm("Do you want lowercase in you password");
 
   }else {
     alert ("invalid submission")
   }
-console.log(convertNumber); 
 
+}
 
 
 // Write password to the #password input
