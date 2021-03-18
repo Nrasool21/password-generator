@@ -73,7 +73,7 @@ const num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 return num [Math.floor(Math.random() * num.length)]
 
 }
-console.log(randomNumber());
+
 
 //declare specialCharacter
 function randomSymbol() {
@@ -104,29 +104,35 @@ function randomSymbol() {
   return symbol[Math.floor(Math.random() * symbol.length)];
 }
 
+
 function generatePassword() {
   /*store a variable */
+  
   const passwordLength = prompt(
     "Specify the length of your password",
     "enter number here"
   );
-  //the value that comes from a prompt-it returns a string value eg 8, convert string to number.
-  if (passwordLength >= 8 && passwordLength <= 128) {
-    /*link it with var passwordchar*/
-    console.log();
+  
+//prompt returns a string value, convert string to number.
+const convertNumber = parseInt(passwordLength, 10);
+console.log(convertNumber);
+console.log(typeof convertNumber);
+
+if (passwordLength >= 8 && passwordLength <= 128) {
+    /*creat const to store data */
+    
   } else {
     alert("invalid submission");
   }
 }
-/*declare another variable to verify password character*/
+/*start to generate password*/
+
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 }
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
