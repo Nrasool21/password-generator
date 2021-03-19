@@ -102,6 +102,10 @@ function randomSymbol() {
   return symbol[Math.floor(Math.random() * symbol.length)];
 }
 
+const isLowerCase = "lowercase";
+const isUpperCase = "uppercase";
+const isNumber = "num";
+const isSymbol = "symbol";
 
 function generatePassword() {
   /*store a variable */
@@ -125,13 +129,16 @@ function generatePassword() {
     return "";
   }
 
-  if (isLowerCase || isUppercase || isNumber || isSymbol) {
+
+  if (isLowerCase || isUpperCase || isNumber || isSymbol) {
     let randomPassword = "";
+
+    const finalPassword = randomPassword.slice(0, passwordLength);
     /*loop over the upper,lower,num,symbol? */
     for (let i = 0; i < passwordLength; i++) {
-      if (isLowercase) {
+      if (isLowerCase) {
         randomPassword += randomLowercase();
-      } else if (isUppercase) {
+      } else if (isUpperCase) {
         randomPassword += randomUppercase();
       } else if (isNumber) {
         randomPassword += randomNumber();
@@ -139,13 +146,10 @@ function generatePassword() {
         randomPassword += randomSymbol();
       }
     }
-    return "randomPassword";
+    return "finalPassword";
   } else {
     alert("Please select at least one option");
   }
-const finalPassword = randomPassword.slice(0, passwordLength);
-
-return finalPassword;
 
 }
 
