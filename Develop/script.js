@@ -146,7 +146,7 @@ function generatePassword() {
         randomPassword += randomSymbol();
       }
     }
-    return "finalPassword";
+    return randomPassword;
   } else {
     alert("Please select at least one option");
   }
