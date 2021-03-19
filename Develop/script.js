@@ -102,6 +102,7 @@ function randomSymbol() {
   return symbol[Math.floor(Math.random() * symbol.length)];
 }
 
+
 function generatePassword() {
   /*store a variable */
 
@@ -114,10 +115,10 @@ function generatePassword() {
   const passwordLength = parseInt(passwordLengthstring, 10);
 
   if (passwordLength >= 8 && passwordLength <= 128) {
-    const islowerCase = confirm("Do you want Lowercase in your password");
+    const isLowerCase = confirm("Do you want Lowercase in your password");
     const isUpperCase = confirm("Do you want Uppercase in your password");
     const isNumber = confirm("Do you want Number in your password");
-    const isSymbol = confirm("Do you want Special Character in you password");
+    const isSymbol = confirm("Do you want Special Character in your password");
   } else {
     alert("Password length needs to be a valid number between 8 to 128");
 
@@ -135,13 +136,17 @@ function generatePassword() {
       } else if (isNumber) {
         randomPassword += randomNumber();
       } else if (isSymbol) {
-        randomPassword += random();
+        randomPassword += randomSymbol();
       }
     }
     return "randomPassword";
   } else {
     alert("Please select at least one option");
   }
+const finalPassword = randomPassword.slice(0, passwordLength);
+
+return finalPassword;
+
 }
 
 // Write password to the #password input
