@@ -150,7 +150,7 @@ function generatePassword() {
     }
 
     return randomPassword;
-  } else if (isLowerCase && isUpperCase && isNumber && isSymbol === 0) {
+  } else {
     alert("Please select at least one option");
   }
 }
