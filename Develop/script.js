@@ -102,10 +102,10 @@ function randomSymbol() {
   return symbol[Math.floor(Math.random() * symbol.length)];
 }
 
-const isLowerCase = "lowercase";
-const isUpperCase = "uppercase";
-const isNumber = "num";
-const isSymbol = "symbol";
+let isLowerCase;
+let isUpperCase;
+let isNumber;
+let isSymbol;
 
 function generatePassword() {
   /*store a variable */
@@ -119,16 +119,15 @@ function generatePassword() {
   const passwordLength = parseInt(passwordLengthstring, 10);
 
   if (passwordLength >= 8 && passwordLength <= 128) {
-    const isLowerCase = confirm("Do you want Lowercase in your password");
-    const isUpperCase = confirm("Do you want Uppercase in your password");
-    const isNumber = confirm("Do you want Number in your password");
-    const isSymbol = confirm("Do you want Special Character in your password");
+    isUpperCase = prompt("Do you want Lowercase in your password");
+    isUpperCase = confirm("Do you want Uppercase in your password");
+    isNumber = confirm("Do you want Number in your password");
+    isSymbol = confirm("Do you want Special Character in your password");
   } else {
     alert("Password length needs to be a valid number between 8 to 128");
 
     return "";
   }
-
 
   if (isLowerCase || isUpperCase || isNumber || isSymbol) {
     let randomPassword = "";
@@ -138,23 +137,23 @@ function generatePassword() {
     for (let i = 0; i < passwordLength; i++) {
       if (isLowerCase) {
         randomPassword += randomLowercase();
-      } if (isUpperCase) {
+      }
+      if (isUpperCase) {
         randomPassword += randomUppercase();
-      } if (isNumber) {
+      }
+      if (isNumber) {
         randomPassword += randomNumber();
-      } if (isSymbol) {
+      }
+      if (isSymbol) {
         randomPassword += randomSymbol();
       }
     }
 
     return randomPassword;
-  } else if (isLowerCase && isUpperCase && isNumber && isSymbol === 0)
-  {
+  } else if (isLowerCase && isUpperCase && isNumber && isSymbol === 0) {
     alert("Please select at least one option");
   }
-
 }
-
 
 // Write password to the #password input
 function writePassword() {
