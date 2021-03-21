@@ -119,7 +119,7 @@ function generatePassword() {
   const passwordLength = parseInt(passwordLengthstring, 10);
 
   if (passwordLength >= 8 && passwordLength <= 128) {
-    isUpperCase = prompt("Do you want Lowercase in your password");
+    isLowerCase = confirm("Do you want Lowercase in your password");
     isUpperCase = confirm("Do you want Uppercase in your password");
     isNumber = confirm("Do you want Number in your password");
     isSymbol = confirm("Do you want Special Character in your password");
