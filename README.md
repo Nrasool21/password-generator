@@ -17,6 +17,8 @@ We were asked to modify starter code to create an application that enables to ra
 
 ## Screenshot
 
+![password-generator](./Screenshot-password-generator.png)
+
 ## link To Deployed Application
 
 https://nrasool21.github.io/password-generator/
