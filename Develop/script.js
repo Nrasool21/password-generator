@@ -138,20 +138,23 @@ function generatePassword() {
     for (let i = 0; i < passwordLength; i++) {
       if (isLowerCase) {
         randomPassword += randomLowercase();
-      } else if (isUpperCase) {
+      } if (isUpperCase) {
         randomPassword += randomUppercase();
-      } else if (isNumber) {
+      } if (isNumber) {
         randomPassword += randomNumber();
-      } else if (isSymbol) {
+      } if (isSymbol) {
         randomPassword += randomSymbol();
       }
     }
+
     return randomPassword;
-  } else {
+  } else if (isLowerCase && isUpperCase && isNumber && isSymbol === 0)
+  {
     alert("Please select at least one option");
   }
 
 }
+
 
 // Write password to the #password input
 function writePassword() {
