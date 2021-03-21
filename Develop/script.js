@@ -129,26 +129,36 @@ function generatePassword() {
     return "";
   }
 
+  // the array that contains the functions defined in the global memory
+  const validChoices = [];
+
+  if (isLowerCase) {
+    validChoices.push(randomLowercase);
+  }
+  if (isUpperCase) {
+    validChoices.push(randomUppercase);
+  }
+  if (isNumber) {
+    validChoices.push(randomNumber);
+  }
+  if (isSymbol) {
+    validChoices.push(randomSymbol);
+  }
+  // should have an array of functions here
+
+  console.log(validChoices);
+
   if (isLowerCase || isUpperCase || isNumber || isSymbol) {
     let randomPassword = "";
-
     const finalPassword = randomPassword.slice(0, passwordLength);
-    /*loop over the upper,lower,num,symbol? */
+    //loop over the upper,lower,num,symbol
     for (let i = 0; i < passwordLength; i++) {
-      if (isLowerCase) {
-        randomPassword += randomLowercase();
-      }
-      if (isUpperCase) {
-        randomPassword += randomUppercase();
-      }
-      if (isNumber) {
-        randomPassword += randomNumber();
-      }
-      if (isSymbol) {
-        randomPassword += randomSymbol();
-      }
-    }
+      // get a random function to run
+      const randomChoiceFunction =
+        validChoices[Math.floor(Math.random() * validChoices.length)];
 
+      randomPassword += randomChoiceFunction();
+    }
     return randomPassword;
   } else {
     alert("Please select at least one option");
